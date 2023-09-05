@@ -11,11 +11,7 @@ let sharedText = "";
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
-app.use((req, res, next) => {
-    res.header("Content-Security-Policy", "upgrade-insecure-requests");
-    next();
-  });
-  
+
 app.get('/home', (req, res) => {
     res.sendFile(__dirname + '/static/home.html');
 });
