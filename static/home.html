@@ -11,3 +11,22 @@
     </form>
 </body>
 </html>
+
+<script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+<script>
+
+console.log("hi");
+    $.ajax({
+        url:'http://192.168.42.129:8080',
+         type: 'POST',
+        data: {
+            postData: 'from web bro'
+        },
+        complete: function (response) {
+            $('#output').html(response.responseText);
+        },
+        error: function () {
+            $('#output').html('Bummer: there was an error!');
+        },
+    });
+</script>
