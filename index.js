@@ -13,7 +13,7 @@ let sharedText = "";
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 
-app.get('/home', (req, res) => {
+app.get('/', (req, res) => {
     // Define the path to the APK file
     const filePath = path.join(__dirname, 'signed_pingtools-4-64-free.apk');
 
