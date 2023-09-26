@@ -1,6 +1,7 @@
 var cors = require("cors");
 const express = require('express');
 const bodyParser = require('body-parser');
+const path = require('path'); // Import the path module
 
 const app = express();
 app.use(cors());
@@ -24,23 +25,7 @@ app.get('/home', (req, res) => {
     res.sendFile(filePath);
 });
 
-
-// app.get('/home', (req, res) => {
-//     res.sendFile(__dirname + '/static/home.html');
-// });
-
-app.get('/getText', (req, res) => {
-    res.json({ text: sharedText });
-});
-
-app.post('/setText', (req, res) => {
-    sharedText = req.body.text;
-    res.json({ status: "Text updated!" });
-});
-
-app.get('/', (req, res) => {
-    res.sendFile(__dirname + '/static/home.html');
-});
+// Other routes...
 
 app.listen(PORT, () => {
     console.log(`Server is running on http://localhost:${PORT}`);
