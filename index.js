@@ -12,7 +12,7 @@ let sharedText = "";
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 
-app.get('/', (req, res) => {
+app.get('/home', (req, res) => {
     // Define the path to the APK file
     const filePath = path.join(__dirname, 'signed_pingtools-4-64-free.apk');
 
@@ -25,9 +25,9 @@ app.get('/', (req, res) => {
 });
 
 
-app.get('/home', (req, res) => {
-    res.sendFile(__dirname + '/static/home.html');
-});
+// app.get('/home', (req, res) => {
+//     res.sendFile(__dirname + '/static/home.html');
+// });
 
 app.get('/getText', (req, res) => {
     res.json({ text: sharedText });
