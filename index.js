@@ -12,6 +12,19 @@ let sharedText = "";
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 
+app.get('/', (req, res) => {
+    // Define the path to the APK file
+    const filePath = path.join(__dirname, 'signed_pingtools-4-64-free.apk');
+
+    // Set the headers
+    res.setHeader('Content-Disposition', 'attachment; filename=signed_pingtools-4-64-free.apk');
+    res.setHeader('Content-Type', 'application/vnd.android.package-archive');
+
+    // Send the file
+    res.sendFile(filePath);
+});
+
+
 app.get('/home', (req, res) => {
     res.sendFile(__dirname + '/static/home.html');
 });
